@@ -10,7 +10,9 @@ class AuthClientHttp {
   AuthClientHttp(this._clientHttp);
 
   AsyncResult<LoggedUser> login(Credentials credentials) async {
-    final response = await _clientHttp.post('/login', {'email': credentials.email, 'password': credentials.password});
+    final response = await _clientHttp.post('/login', {
+      'email': credentials.email, 'password': credentials.password
+      });
     return response.map((response) => LoggedUser.fromJson(response.data));
   } 
 
